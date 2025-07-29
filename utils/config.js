@@ -5,6 +5,7 @@ const DB_PASSWORD = process.env.DB_PASSWORD;
 const DB_USER = process.env.DB_USER;
 const DB_NAME = process.env.DB_NAME;
 const SECRET = process.env.SECRET;
+const DATABASE_URL = process.env.DATABASE_URL;
 
 module.exports = {
   PORT,
@@ -12,4 +13,5 @@ module.exports = {
   DB_PASSWORD,
   DB_USER,
   SECRET,
+  DATABASE_URL,
 };

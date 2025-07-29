@@ -1,9 +1,24 @@
 const Sequelize = require("sequelize");
-const { DB_NAME, DB_USER, DB_PASSWORD } = require("./config");
+const { DATABASE_URL } = require("./config");
 
-const sequelize = new Sequelize(`${DB_NAME}`, `${DB_USER}`, `${DB_PASSWORD}`, {
+// conexion base de datos local
+
+/* const sequelize = new Sequelize(`${DB_NAME}`, `${DB_USER}`, `${DB_PASSWORD}`, {
   host: "localhost",
   dialect: "postgres",
+}); */
+
+// Conexion Render
+
+const sequelize = new Sequelize(`${DATABASE_URL}`, {
+  dialect: "postgres",
+  protocol: "postgres",
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false, // Necesario para Render
+    },
+  },
 });
 
 const connectToDatabase = async () => {
