@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const { DATABASE_URL } = require("./config");
+const { DATABASE_URL, DB_NAME, DB_USER, DB_PASSWORD } = require("./config");
 
 // conexion base de datos local
 
